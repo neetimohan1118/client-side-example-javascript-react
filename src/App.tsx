@@ -15,50 +15,28 @@ function App() {
       viewport.scrollTop = viewport.scrollHeight;
     }
   };
-  const { toggleCall, messages, callStatus, activeTranscript, audioLevel } =
-    useVapi();
+
+  const { toggleCall, messages, callStatus, activeTranscript, audioLevel } = useVapi();
 
   useEffect(() => {
     vapi.on("message", scrollToBottom);
     return () => {
       vapi.off("message", scrollToBottom);
     };
-  });
+  }, []);
 
   return (
-    <main className="flex h-screen">
-      <CharacterPreview />
-      <div
-        id="card"
-        className="text-slate-950 dark:text-slate-50 w-full relative"
-      >
-        {/* <div
-          id="card-header"
-          className="flex flex-col space-y-1.5 p-6 shadow pb-4"
-        ></div> */}
-        <div id="card-content" className="p-6 pt-0">
-          <ScrollArea
-            ref={scrollAreaRef}
-            viewportRef={viewportRef}
-            className="h-[90vh] flex flex-1 p-4"
-          >
-            <div className="flex flex-1 flex-col min-h-[85vh] justify-end">
-              <MessageList
-                messages={messages}
-                activeTranscript={activeTranscript}
-              />
+    <main className="flex flex-col h-screen">
+      <div id="card" className="text-slate-950 dark:text-slate-50 w-full flex flex-col h-full relative">
+        <div id="card-content" className="p-6 pt-0 flex-1 overflow-auto">
+          <ScrollArea ref={scrollAreaRef} viewportRef={viewportRef} className="flex-1">
+            <div className="flex flex-col min-h-[85vh]">
+              <MessageList messages={messages} activeTranscript={activeTranscript} />
             </div>
           </ScrollArea>
         </div>
-        <div
-          id="card-footer"
-          className="flex justify-center absolute bottom-0 left-0 right-0 py-4"
-        >
-          <VapiButton
-            audioLevel={audioLevel}
-            callStatus={callStatus}
-            toggleCall={toggleCall}
-          />
+        <div id="card-footer" className="flex justify-center py-4">
+          <VapiButton audioLevel={audioLevel} callStatus={callStatus} toggleCall={toggleCall} />
         </div>
       </div>
     </main>

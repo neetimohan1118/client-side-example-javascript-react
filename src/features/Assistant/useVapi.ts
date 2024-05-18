@@ -1,4 +1,3 @@
-import { characterAssistant } from "@/assistants/character.assistant";
 import {
   Message,
   MessageTypeEnum,
@@ -89,7 +88,7 @@ export function useVapi() {
 
   const start = async () => {
     setCallStatus(CALL_STATUS.LOADING);
-    const response = vapi.start(characterAssistant);
+    const response = vapi.start('2bef1052-82ac-4d0a-baa7-fa522430b65e');
 
     response.then((res) => {
       console.log("call", res);
