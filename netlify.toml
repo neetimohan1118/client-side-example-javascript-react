@@ -1,0 +1,12 @@
+[build]
+  command = "pnpm install --no-frozen-lockfile && pnpm run build"
+  publish = "dist"
+
+[context.production.environment]
+  PNPM_VERSION = "8.15.7"
+
+[context.deploy-preview.environment]
+  PNPM_VERSION = "8.15.7"
+
+[context.branch-deploy.environment]
+  PNPM_VERSION = "8.15.7"
