@@ -9,6 +9,7 @@
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },
+  "packageManager": "pnpm@8.15.7",
   "dependencies": {
     "@radix-ui/react-scroll-area": "^1.0.5",
     "@vapi-ai/web": "^1.0.255",

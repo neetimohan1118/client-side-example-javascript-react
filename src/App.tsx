@@ -2,7 +2,6 @@ import { ScrollArea } from "@/components/ui/ScrollArea";
 import { VapiButton, vapi } from "./features/Assistant";
 import { MessageList } from "./features/Messages";
 import { useVapi } from "./features/Assistant";
-import { CharacterPreview } from "./features/Character";
 import { useEffect, useRef } from "react";
 
 function App() {
